@@ -1,7 +1,7 @@
 
 var Map = function(parentDiv) {
 
-    var osm = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png');
+    var osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
 
     var osmCycle = L.tileLayer('http://{s}.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png');
     var osmCycleTransport = L.tileLayer('http://{s}.tile2.opencyclemap.org/transport/{z}/{x}/{y}.png');
@@ -70,6 +70,8 @@ Map.prototype.loadContext = function() {
                 var pkm = `${pt.name} (lvl ${pt.lvl}) <br /> Cp:${pt.cp} Iv:${pt.iv}%`;
                 L.marker([pt.lat, pt.lng], {icon: icon, zIndexOffset: 100}).bindPopup(pkm).addTo(this.layerCatches);
             }
+
+            sessionStorage.setItem("available", false);
         }
     } catch(err) { console.log(err); }
 }
