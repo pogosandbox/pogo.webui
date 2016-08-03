@@ -36,6 +36,6 @@ $(function() {
         }
     }
 
-    check();
+    if (typeof require === 'function') check();
 
 });

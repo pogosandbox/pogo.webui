@@ -37,17 +37,13 @@
         }
 
     } else {
-        console.log("Load config from storage + server");
+        console.log("Load config from storage");
 
         service.load = function() {
             var config = Object.assign({}, defaultConfig);
             var json = localStorage.getItem("config");
             if (json) Object.assign(config, JSON.parse(json));
-            $.ajax({
-                url: `/api/config`,
-                async: false,
-                success: (result) => { Object.assign(config, result); }
-            });
+            
             return config;
         }
 
