@@ -1,10 +1,10 @@
 {
-  "name": "necrobotvisualizer",
+  "name": "pogo.webui",
   "version": "1.0.8",
-  "description": "MobBot Visualizer",
+  "description": "Pokemon Go Bot Visualizer",
   "author": "Nicolas Schmitt",
-  "main": "main.js",
+  "main": "server.js",
   "dependencies": {
-    "electron-squirrel-startup": "^1.0.0"
+    "express": "^4.14.0"
   }
 }
