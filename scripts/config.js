@@ -58,10 +58,10 @@
             var json = localStorage.getItem("config");
             if (json) Object.assign(config, JSON.parse(json));
 
-            var host = getURLParameter("hostname");
+            var host = getURLParameter("websocket");
             if (host) {
-                var port = getURLParameter("port") || "14252";
-                config.websocket = `ws://${host}:${port}`;
+                console.log(host);
+                config.websocket = host;
             }
 
             config.version = "online";
