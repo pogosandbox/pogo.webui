@@ -64,6 +64,8 @@
                 config.websocket = `ws://${host}:${port}`;
             }
 
+            config.version = "online";
+
             return config;
         }
 
