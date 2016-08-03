@@ -30,20 +30,23 @@
                 $(".inventory").removeClass("active");
             } else {
                 wssend("PokemonList");
+                //ga("send", "event", "pokemonlist");
             }
         });
         $("#eggsLink").click( function() {
             if ($(".inventory").css("opacity") == "1" && $(".inventory .data .eggs").length) {
                 $(".inventory").removeClass("active");
             } else { 
-                wssend("EggsList"); 
+                wssend("EggsList");
+                //ga("send", "event", "eggslist");
             }
         });
         $("#inventoryLink").click( function() {
             if ($(".inventory").css("opacity") == "1" && $(".inventory .data .items").length) {
                 $(".inventory").removeClass("active");
             } else {
-                wssend("InventoryList"); 
+                wssend("InventoryList");
+                //ga("send", "event", "inventorylist");
             }
         });
 
@@ -79,6 +82,7 @@
         $(".inventory .data").on("click", "a.transferAction", function() {
             var transfer = $(this).parent();
             confirmAndSendToServer("Are you sure you want to transfer this Pokemon?", () => {
+                ga("send", "event", "transfer");
                 wssend({
                     Command: "TransferPokemon",
                     PokemonId: transfer.attr("id"),
@@ -91,6 +95,7 @@
         $(".inventory .data").on("click", "a.evolveAction", function() {
             var evolve = $(this).parent();
             confirmAndSendToServer("Are you sure you want to evolve this Pokemon?", () => {
+                ga("send", "event", "transfer");
                 wssend({
                     Command: "EvolvePokemon",
                     PokemonId: evolve.attr("id"),

@@ -13,7 +13,7 @@ function listenToWebSocket() {
         global.pokemonSettings = {};
     }
 
-    ws = new WebSocket(global.config.websocket);
+    ws = new WebSocket(global.config.websocket, { rejectUnauthorized: false });
     global.ws = ws;
     global.connected = false;
     ws.onclose = (evt) => {
