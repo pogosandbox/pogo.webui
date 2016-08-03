@@ -11,7 +11,7 @@
                 return sParameterName[1];
             }
         }
-    }​
+    }
 
     var defaultConfig = {
         locale: "en",
@@ -59,8 +59,8 @@
 
             var host = getURLParameter("hostname");
             if (host) {
-                var port = getURLParameter("port") || "14251";
-                config.websocket = `wss://${host}:${port}`;
+                var port = getURLParameter("port") || "14252";
+                config.websocket = `ws://${host}:${port}`;
             }
 
             return config;
