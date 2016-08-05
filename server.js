@@ -4,15 +4,30 @@ var app = express();
 var http = require('http');
 app.use(express.static(__dirname));
 
-var fs = require('fs');
-var https = require('https');
-var options = {
-    key  : fs.readFileSync('./certs/dev.cert.key'),
-    cert : fs.readFileSync('./certs/dev.cert.crt')
-};
-server = https.createServer(options, app);
+var https = false;
 
-server.listen(443, "0.0.0.0", function() {
-    var addr = server.address();
-    console.log("Server listening at ", addr.address + ":" + addr.port);
-});
+if (https) {
+
+    var fs = require('fs');
+    var https = require('https');
+    var options = {
+        key  : fs.readFileSync('./certs/dev.cert.key'),
+        cert : fs.readFileSync('./certs/dev.cert.crt')
+    };
+    server = https.createServer(options, app);
+
+    server.listen(443, "0.0.0.0", function() {
+        var addr = server.address();
+        console.log("Server listening at ", addr.address + ":" + addr.port);
+    });
+
+} else {
+
+    server = http.createServer(app);
+
+    server.listen(8080, "0.0.0.0", function() {
+        var addr = server.address();
+        console.log("Server listening at ", addr.address + ":" + addr.port);
+    });
+
+}
