@@ -51,6 +51,7 @@
 
     } else {
         console.log("Load config from storage");
+        config.websocket = "ws://localhost:14252";
 
         service.load = function() {
             var config = Object.assign({}, defaultConfig);
